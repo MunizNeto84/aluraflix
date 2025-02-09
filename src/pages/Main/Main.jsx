@@ -1,7 +1,10 @@
+import React from "react";
+import MainHeader from "../../components/default/Header/MainHeader";
+
 const Main = () => {
   return (
     <>
-      <h1>Hello World!</h1>
+      <MainHeader />
     </>
   );
 };
