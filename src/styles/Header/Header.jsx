@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
   background: transparent;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.8),
     transparent 70%
   );
 `;
