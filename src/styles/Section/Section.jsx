@@ -8,5 +8,8 @@ export const SectionContainer = styled.section`
 
 export const Container = styled.section`
   display: flex;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
   gap: 0.75rem;
 `;

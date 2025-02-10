@@ -9,7 +9,7 @@ const Footer = () => {
     <FooterContainer>
       <FooterText>
         {new Date().getFullYear()} - Desenvolvido por
-        <FooterStrong onClick={newTab}> Muniz Neto</FooterStrong>
+        <FooterStrong onClick={newTab}> Muniz Neto</FooterStrong>.
       </FooterText>
     </FooterContainer>
   );
