@@ -30,9 +30,9 @@ export const BackgroundDiv = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 37.5rem;
-  width: 34.3rem;
-  padding: 50px 80px;
+  width: 90%;
+  max-width: 34.3rem;
+  padding: 2rem;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
@@ -41,7 +41,7 @@ export const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
 
   form {
-    width: 100%;
+    width: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,9 +55,14 @@ export const Container = styled.div`
   }
 
   p {
-    margin: 0 10px;
+    margin: 10px 5px;
     align-self: flex-start;
     text-align: left;
     width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem;
   }
 `;

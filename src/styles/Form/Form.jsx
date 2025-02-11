@@ -3,6 +3,7 @@ const Form = styled.form`
   padding: 1.25rem 0;
 
   label {
+    position: relative;
     margin: 5px;
     align-self: flex-start;
     text-align: left;
@@ -11,6 +12,11 @@ const Form = styled.form`
 
   button {
     margin: 10px;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem;
   }
 `;
 

@@ -38,4 +38,9 @@ export const InputForm = styled.input`
   &:focus::placeholder {
     color: transparent;
   }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem;
+  }
 `;

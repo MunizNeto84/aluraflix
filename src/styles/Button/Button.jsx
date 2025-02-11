@@ -56,4 +56,9 @@ export const ButtonForm = styled.button`
   &:active {
     background-color: var(--primary600);
   }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem;
+  }
 `;
