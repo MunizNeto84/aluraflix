@@ -59,6 +59,5 @@ export const ButtonForm = styled.button`
 
   @media (max-width: 480px) {
     width: 95%;
-    padding: 1.5rem;
   }
 `;

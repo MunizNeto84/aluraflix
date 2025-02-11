@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { BackgroundDiv, Container } from "../../../styles/Div/Div";
 import { Title, Text, Strong, Label } from "../../../styles/Tittle/Tittle";
 import Form from "../../../styles/Form/Form";
@@ -6,6 +7,7 @@ import { InputForm } from "../../../styles/Input/Input";
 import { ButtonForm } from "../../../styles/Button/Button";
 
 const SignInSection = () => {
+  const navigate = useNavigate();
   return (
     <BackgroundDiv>
       <Container>
@@ -19,7 +21,11 @@ const SignInSection = () => {
         </Form>
         <Text>
           Novo por aqui?
-          <Strong> Cadastre agora</Strong>.
+          <Strong onClick={() => navigate("/cadastrar")}>
+            {" "}
+            Cadastre agora
+          </Strong>
+          .
         </Text>
       </Container>
       <Footer />

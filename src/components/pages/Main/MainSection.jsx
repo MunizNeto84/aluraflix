@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { BackgroundDiv } from "../../../styles/Div/Div";
 import { SectionContainer, Container } from "../../../styles/Section/Section";
 import { Title, Subtitle } from "../../../styles/Tittle/Tittle";
@@ -6,6 +7,7 @@ import { ButtonSecondary } from "../../../styles/Button/Button";
 import Footer from "../../default/Footer/Footer";
 
 const MainSection = () => {
+  const navigate = useNavigate();
   return (
     <BackgroundDiv>
       <SectionContainer>
@@ -17,7 +19,9 @@ const MainSection = () => {
       </SectionContainer>
       <Container>
         <InputPrincipal type="email" placeholder="munizneto@aluraflix.com.br" />
-        <ButtonSecondary>Vamos lá</ButtonSecondary>
+        <ButtonSecondary onClick={() => navigate("/cadastrar")}>
+          Vamos lá
+        </ButtonSecondary>
       </Container>
       <SectionContainer>
         <Title>VÍdeos gratuitos.</Title>
