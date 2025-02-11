@@ -38,3 +38,22 @@ export const ButtonSecondary = styled.button`
     background-color: var(--primary600);
   }
 `;
+
+export const ButtonForm = styled.button`
+  height: 3.1rem;
+  width: 25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--primary200);
+  &:hover {
+    background-color: var(--primary400);
+  }
+
+  &:active {
+    background-color: var(--primary600);
+  }
+`;

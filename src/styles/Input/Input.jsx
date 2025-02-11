@@ -19,3 +19,23 @@ export const InputPrincipal = styled.input`
     color: transparent;
   }
 `;
+
+export const InputForm = styled.input`
+  padding: 10px;
+  height: 3.1rem;
+  width: 25rem;
+  font-size: 1rem;
+  border: 1px solid var(--primary200);
+  border-radius: 5px;
+
+  &:focus {
+    border-color: var(--primary400);
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(86, 8, 243, 0.8);
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+`;

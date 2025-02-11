@@ -26,3 +26,38 @@ export const BackgroundDiv = styled.div`
     );
   }
 `;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 37.5rem;
+  width: 34.3rem;
+  padding: 50px 80px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    align-self: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+
+  p {
+    margin: 0 10px;
+    align-self: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+`;

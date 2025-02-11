@@ -1,8 +1,8 @@
 import { LogoContainer, LogoImg } from "../../../styles/Logo/Logo";
 
-function Logo() {
+function Logo({ onClick }) {
   return (
-    <LogoContainer>
+    <LogoContainer onContextMenu={(e) => e.preventDefault()} onClick={onClick}>
       <LogoImg src={"/aluraflix.svg"} alt="logo da aluraflix" />
     </LogoContainer>
   );
