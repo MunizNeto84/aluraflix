@@ -14,11 +14,11 @@ const SignUpSection = () => {
         <Title>Cadastrar</Title>
         <Form>
           <Label>Nome Completo</Label>
-          <InputForm type="text" />
+          <InputForm type="text" placeholder="Muniz Neto" />
           <Label>E-mail</Label>
-          <InputForm type="email" />
+          <InputForm type="email" placeholder="munizneto@aluraflix.com.br" />
           <Label>Senha</Label>
-          <InputForm type="password" />
+          <InputForm type="password" placeholder="********" />
           <ButtonForm>Cadastrar</ButtonForm>
         </Form>
         <Text>
