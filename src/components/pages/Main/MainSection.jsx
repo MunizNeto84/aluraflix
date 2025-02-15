@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BackgroundDiv } from "../../../styles/Div/Div";
 import { SectionContainer, Container } from "../../../styles/Section/Section";
@@ -8,6 +9,11 @@ import Footer from "../../default/Footer/Footer";
 
 const MainSection = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const handleSignUp = () => {
+    navigate("/cadastrar", { state: { email } });
+  };
+
   return (
     <BackgroundDiv>
       <SectionContainer>
@@ -18,10 +24,13 @@ const MainSection = () => {
         </Subtitle>
       </SectionContainer>
       <Container>
-        <InputPrincipal type="email" placeholder="munizneto@aluraflix.com.br" />
-        <ButtonSecondary onClick={() => navigate("/cadastrar")}>
-          Vamos lá
-        </ButtonSecondary>
+        <InputPrincipal
+          type="email"
+          placeholder="munizneto@aluraflix.com.br"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <ButtonSecondary onClick={handleSignUp}>Vamos lá</ButtonSecondary>
       </Container>
       <SectionContainer>
         <Title>VÍdeos gratuitos.</Title>
