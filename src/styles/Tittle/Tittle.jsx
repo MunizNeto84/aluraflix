@@ -15,10 +15,12 @@ export const Text = styled.p`
   font-weight: 400;
 `;
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  font-size: 0.9rem;
+`;
 
 export const Strong = styled.strong`
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
 

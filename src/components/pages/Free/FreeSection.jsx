@@ -36,7 +36,21 @@ const FreeSection = () => {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
 
-      const data = await response.json();
+      const responseData = await response.json();
+
+      if (!responseData?.totalRegistros) {
+        throw new Error("Dados inválidos recebidos.");
+      }
+
+      const videosFree = await fetch(
+        `https://api-aluraflix-wojl.onrender.com/api/v1/video/free?page=1&limit=${responseData.totalRegistros}`
+      );
+
+      if (!videosFree.ok) {
+        throw new Error(`Erro na requisição: ${videosFree.status}`);
+      }
+
+      const data = await videosFree.json();
 
       if (!data?.conteudo) {
         throw new Error("Dados inválidos recebidos.");
