@@ -61,3 +61,27 @@ export const ButtonForm = styled.button`
     width: 95%;
   }
 `;
+
+export const ButtonPagination = styled.button`
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--primary200);
+
+  &:hover {
+    background-color: var(--primary400);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+    cursor: not-allowed;
+  }
+
+  &:active {
+    background-color: var(--primary600);
+  }
+`;

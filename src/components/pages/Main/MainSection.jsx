@@ -30,7 +30,9 @@ const MainSection = () => {
           para você!
         </Subtitle>
       </SectionContainer>
-      <ButtonSecondary>Clique aqui</ButtonSecondary>
+      <ButtonSecondary onClick={() => navigate("/free")}>
+        Clique aqui
+      </ButtonSecondary>
       <Footer />
     </BackgroundDiv>
   );

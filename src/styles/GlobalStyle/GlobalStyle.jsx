@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     --primary200: #5608f3;
     --primary400: #4306c1;
     --primary600: #32048f;
+    --disabled: #444444;
     --background: #111;
     --text: #e1e1e1;
   }

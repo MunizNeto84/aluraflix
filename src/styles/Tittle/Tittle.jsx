@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 800;
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-wight: 500;
 `;
 
 export const Text = styled.p`
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 400;
 `;
 
