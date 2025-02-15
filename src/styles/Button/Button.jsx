@@ -85,3 +85,38 @@ export const ButtonPagination = styled.button`
     background-color: var(--primary600);
   }
 `;
+
+export const ButtonProfile = styled.button`
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: url("https://loodibee.com/wp-content/uploads/Netflix-avatar-1.png")
+    no-repeat center center/cover;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    border: 1px solid rgba(17, 17, 17, 0.3);
+  }
+`;
+
+export const ButtonExit = styled.img`
+  height: 25px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    filter: invert(1);
+  }
+`;
