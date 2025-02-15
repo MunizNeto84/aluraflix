@@ -79,7 +79,7 @@ const FreeSection = () => {
     const handleResize = () => {
       if (window.innerWidth > 1024) {
         setVideosPerPage(16);
-      } else if (window.innerWidth > 400) {
+      } else if (window.innerWidth > 600) {
         setVideosPerPage(6);
       } else {
         setVideosPerPage(3);

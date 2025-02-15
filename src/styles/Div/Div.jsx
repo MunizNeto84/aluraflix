@@ -75,7 +75,7 @@ export const VideoContainer = styled.div`
   justify-content: center;
   padding: 1rem;
   width: 95%;
-  max-width: 100%;
+  max-width: 90%;
   border-radius: 10px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
