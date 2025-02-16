@@ -157,3 +157,7 @@ export const Pagination = styled.div`
   margin-top: 10px;
   margin-bottom: 15px;
 `;
+
+export const CarrosselContainer = styled.div`
+  position: relative;
+`;

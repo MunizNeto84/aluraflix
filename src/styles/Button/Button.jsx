@@ -120,3 +120,25 @@ export const ButtonExit = styled.img`
     filter: invert(1);
   }
 `;
+
+export const ButtonPlay = styled.button`
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  height: 40px;
+  width: 120px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  background-color: var(--secondary);
+
+  &:hover {
+    background-color: var(--primary400);
+  }
+
+  &:active {
+    background-color: var(--primary600);
+  }
+`;
