@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../../service/AuthContext";
 import { CarrosselContainer } from "../../../styles/Div/Div";
 import { Img, ImgLogo } from "../../../styles/Img/Img";
@@ -6,13 +6,14 @@ import { ButtonPlay } from "../../../styles/Button/Button";
 
 const Carrossel = () => {
   const { token } = useAuth();
-  const [canal, setCanal] = useState(null);
+  const [carrossel, setCarrossel] = useState([]);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const fetchCanal = async () => {
       try {
         const response = await fetch(
-          "https://api-aluraflix-wojl.onrender.com/api/v1/canal/1",
+          "https://api-aluraflix-wojl.onrender.com/api/v1/canal/",
           {
             method: "GET",
             headers: {
@@ -24,29 +25,40 @@ const Carrossel = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setCanal(data);
-        } else {
-          console.error("Erro ao buscar canal, status:", response.status);
+          console.log("🔍 Resposta da API:", data);
+          setCarrossel(data.getAll.conteudo);
         }
       } catch (error) {
         console.error("Erro ao buscar canal", error);
       }
     };
-
     fetchCanal();
-  });
+  }, []);
+
+  useEffect(() => {
+    if (carrossel.length > 0) {
+      const interval = setInterval(() => {
+        setIndex((prevIndex) => {
+          let newIndex;
+          do {
+            newIndex = Math.floor(Math.random() * carrossel.length);
+          } while (newIndex === prevIndex);
+          return newIndex;
+        });
+      }, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [carrossel]);
 
   return (
     <CarrosselContainer>
-      {canal ? (
+      {carrossel[index] && (
         <>
-          <Img src={canal.urlCapa} alt="Capa do canal" />
-          <ImgLogo src={canal.urlLogo} alt="Logo do canal" />
+          <Img src={carrossel[index].urlCarrossel} alt="Capa do canal" />
+          <ImgLogo src={carrossel[index].urlLogo} alt="Capa do canal" />
+          <ButtonPlay>Assistir</ButtonPlay>
         </>
-      ) : (
-        <p>Carregando...</p>
       )}
-      <ButtonPlay>Assistir</ButtonPlay>
     </CarrosselContainer>
   );
 };
