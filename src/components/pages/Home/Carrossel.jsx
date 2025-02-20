@@ -25,7 +25,6 @@ const Carrossel = () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log("🔍 Resposta da API:", data);
           setCarrossel(data.getAll.conteudo);
         }
       } catch (error) {

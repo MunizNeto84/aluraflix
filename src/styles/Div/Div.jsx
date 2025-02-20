@@ -161,3 +161,72 @@ export const Pagination = styled.div`
 export const CarrosselContainer = styled.div`
   position: relative;
 `;
+
+export const CategoriaItemContainer = styled.div`
+  position: relative;
+  padding: 40px 10px 10px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const CategoriaVideoList = styled.div`
+  padding: 0 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 10px;
+  transition: transform 0.2s ease-out;
+`;
+
+export const CategoriaVideoThumbnail = styled.div`
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 160px;
+    height: 120px;
+    border-radius: 5px;
+    border: 5px solid transparent;
+  }
+
+  &.active img {
+    border-color: var(--primary200);
+  }
+`;
+
+export const CategoriaTitle = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+`;
