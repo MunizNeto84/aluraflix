@@ -1,13 +1,11 @@
 import HomeHeader from "../../components/default/Header/HomeHeader";
-import Carrossel from "../../components/pages/Home/Carrossel";
-import Categoria from "../../components/pages/Home/Categoria";
+import SectionHome from "../../components/pages/Home/SectionHome";
 
 const Home = () => {
   return (
     <>
       <HomeHeader />
-      <Carrossel />
-      <Categoria />
+      <SectionHome />
     </>
   );
 };

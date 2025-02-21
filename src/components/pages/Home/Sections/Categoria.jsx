@@ -1,7 +1,7 @@
-import { useAuth } from "../../../service/AuthContext";
+import { useAuth } from "../../../../service/AuthContext";
 import React, { useState, useEffect } from "react";
 import CategoriaItem from "./CategoriaItem";
-import { Wrapper } from "../../../styles/Div/Div";
+import { Wrapper } from "../../../../styles/Div/Div";
 
 const Categoria = () => {
   const { token } = useAuth();
@@ -46,7 +46,6 @@ const Categoria = () => {
           categoria={categoria}
           token={token}
           selectedVideo={selectedVideo}
-          setSelectedVideo={setSelectedVideo}
         />
       ))}
     </Wrapper>

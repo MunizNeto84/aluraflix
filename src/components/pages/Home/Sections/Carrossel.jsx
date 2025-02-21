@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../../../service/AuthContext";
-import { CarrosselContainer } from "../../../styles/Div/Div";
-import { Img, ImgLogo } from "../../../styles/Img/Img";
-import { ButtonPlay } from "../../../styles/Button/Button";
+import { useAuth } from "../../../../service/AuthContext";
+import { CarrosselContainer } from "../../../../styles/Div/Div";
+import { Img, ImgLogo } from "../../../../styles/Img/Img";
+import { ButtonPlay } from "../../../../styles/Button/Button";
 
 const Carrossel = () => {
   const { token } = useAuth();

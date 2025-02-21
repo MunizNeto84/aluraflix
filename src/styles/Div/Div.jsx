@@ -164,10 +164,9 @@ export const CarrosselContainer = styled.div`
 
 export const CategoriaItemContainer = styled.div`
   position: relative;
-  padding: 40px 10px 10px;
+  padding: 50px 10px 10px;
   width: 95%;
   max-width: 1200px;
-  margin: 20px auto;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
@@ -217,6 +216,7 @@ export const CategoriaTitle = styled.div`
   top: 10px;
   left: 10px;
   color: white;
+  text-transform: uppercase;
   font-size: 22px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);

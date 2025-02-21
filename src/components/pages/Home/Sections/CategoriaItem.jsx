@@ -4,7 +4,7 @@ import {
   CategoriaVideoList,
   CategoriaVideoThumbnail,
   CategoriaTitle,
-} from "../../../styles/Div/Div";
+} from "../../../../styles/Div/Div";
 
 const extractVideoId = (url) => {
   const regex =
