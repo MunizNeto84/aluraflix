@@ -230,3 +230,34 @@ export const Wrapper = styled.div`
   gap: 30px;
   padding: 20px;
 `;
+
+export const VideoSection = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 70vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: ${({ show }) => (show ? "flex" : "none")};
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 90%;
+    height: 340px;
+    border: 4px solid var(--primary200);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+  }
+`;
