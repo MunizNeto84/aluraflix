@@ -1,9 +1,11 @@
 import { Title, Subtitle } from "../../../../styles/Tittle/Tittle";
 import {
-  CategoriaVideoThumbnail,
   SearchContainer,
-  SearchVideoItem,
+  CategoriaVideoThumbnail,
+  VideoCard,
+  VideoGrid,
 } from "../../../../styles/Div/Div";
+import { SearchThumbnail } from "../../../../styles/Img/Img";
 
 const extractVideoId = (url) => {
   const regex =
@@ -17,20 +19,22 @@ const Search = ({ videosBuscados }) => {
 
   return (
     <SearchContainer>
-      <Title>Resultados da Busca:</Title>
-      {videosBuscados.map((video) => (
-        <SearchVideoItem key={video.id}>
-          <Subtitle>{video.titulo}</Subtitle>
-          <CategoriaVideoThumbnail>
-            <img
-              src={`https://img.youtube.com/vi/${extractVideoId(
-                video.url
-              )}/default.jpg`}
-              alt="video"
-            />
-          </CategoriaVideoThumbnail>
-        </SearchVideoItem>
-      ))}
+      <Title>Resultados da Busca</Title>
+      <VideoGrid>
+        {videosBuscados.map((video) => (
+          <VideoCard key={video.id}>
+            <Subtitle>{video.titulo}</Subtitle>
+            <CategoriaVideoThumbnail>
+              <SearchThumbnail
+                src={`https://img.youtube.com/vi/${extractVideoId(
+                  video.url
+                )}/mqdefault.jpg`}
+                alt={video.titulo}
+              />
+            </CategoriaVideoThumbnail>
+          </VideoCard>
+        ))}
+      </VideoGrid>
     </SearchContainer>
   );
 };

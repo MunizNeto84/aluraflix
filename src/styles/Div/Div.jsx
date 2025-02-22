@@ -309,6 +309,22 @@ export const SearchContainer = styled.div`
   color: white;
 `;
 
-export const SearchVideoItem = styled.div`
-  margin-bottom: 20px;
+export const VideoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+`;
+
+export const VideoCard = styled.div`
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;

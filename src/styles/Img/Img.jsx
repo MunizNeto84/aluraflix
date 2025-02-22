@@ -50,3 +50,8 @@ export const ThumbnailPerfil = styled.img`
     border-color: var(--primary200);
   }
 `;
+
+export const SearchThumbnail = styled.img`
+  width: 100%;
+  border-radius: 5px;
+`;
