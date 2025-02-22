@@ -50,3 +50,22 @@ export const FooterStrong = styled.strong`
     color: var(--primary600);
   }
 `;
+
+export const TopTenTitle = styled.h1`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+`;
+
+export const Numbers = styled.h1`
+  position: static;
+  color: white;
+  font-size: 140px;
+  font-weight: bold;
+  text-shadow: var(--primary200) 5px 5px;
+`;

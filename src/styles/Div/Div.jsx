@@ -261,3 +261,38 @@ export const VideoSection = styled.div`
     transform: translate(-50%, -50%);
   }
 `;
+
+export const TopTenContainer = styled.div`
+  position: relative;
+  padding: 50px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const TopTenVideoList = styled.div`
+  padding: 0 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  transition: transform 0.2s ease-out;
+`;
+
+export const TopTenVideoItem = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;

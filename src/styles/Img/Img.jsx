@@ -26,3 +26,27 @@ export const ImgLogo = styled.img`
   left: 18px;
   width: 280px;
 `;
+
+export const ThumbnailPerfil = styled.img`
+  position: relative;
+  left: -20px;
+  margin-left: 5px;
+  cursor: pointer;
+  height: 140px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 160px;
+    height: 120px;
+    border-radius: 5px;
+    border: 5px solid transparent;
+  }
+
+  &.active img {
+    border-color: var(--primary200);
+  }
+`;
