@@ -46,6 +46,7 @@ const Categoria = () => {
           categoria={categoria}
           token={token}
           selectedVideo={selectedVideo}
+          setSelectedVideo={setSelectedVideo}
         />
       ))}
     </Wrapper>

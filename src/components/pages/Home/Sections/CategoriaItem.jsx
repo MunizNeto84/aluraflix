@@ -13,9 +13,13 @@ const extractVideoId = (url) => {
   return match ? match[1] : null;
 };
 
-const CategoriaItem = ({ categoria, token }) => {
+const CategoriaItem = ({
+  categoria,
+  token,
+  selectedVideo,
+  setSelectedVideo,
+}) => {
   const [videoIds, setVideoIds] = useState([]);
-  const [mainVideo, setMainVideo] = useState(null);
   const videoListRef = useRef(null);
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -53,7 +57,6 @@ const CategoriaItem = ({ categoria, token }) => {
           .filter((video) => video.id);
 
         setVideoIds(ids);
-        if (ids.length > 0) setMainVideo(ids[0]);
       } catch (error) {
         console.error("Erro ao buscar vídeos:", error);
       }
@@ -106,8 +109,8 @@ const CategoriaItem = ({ categoria, token }) => {
         {videoIds.map((video, index) => (
           <CategoriaVideoThumbnail
             key={index}
-            className={mainVideo === video ? "active" : ""}
-            onClick={() => setMainVideo(video)}
+            className={selectedVideo === video.id ? "active" : ""}
+            onClick={() => setSelectedVideo(video.id)}
           >
             <img
               src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
