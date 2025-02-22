@@ -44,3 +44,13 @@ export const InputForm = styled.input`
     padding: 1.5rem;
   }
 `;
+
+export const SearchInput = styled.input`
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  width: 250px;
+  display: ${(props) => (props.visible ? "block" : "none")};
+`;

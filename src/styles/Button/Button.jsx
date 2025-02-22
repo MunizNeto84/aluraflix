@@ -169,3 +169,19 @@ export const CloseButton = styled.button`
     background-color: var(--primary600);
   }
 `;
+
+export const SearchButton = styled.img`
+  height: 30px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    filter: invert(1);
+  }
+`;

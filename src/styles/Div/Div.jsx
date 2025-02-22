@@ -296,3 +296,19 @@ export const TopTenVideoItem = styled.div`
   align-items: center;
   position: relative;
 `;
+
+export const SearchHomeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const SearchContainer = styled.div`
+  margin: 20px 0;
+  text-align: center;
+  color: white;
+`;
+
+export const SearchVideoItem = styled.div`
+  margin-bottom: 20px;
+`;
