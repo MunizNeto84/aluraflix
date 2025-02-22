@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import VideoMain from "./VideoMain";
 import {
   CategoriaItemContainer,
   CategoriaVideoList,
@@ -20,6 +21,8 @@ const CategoriaItem = ({
   setSelectedVideo,
 }) => {
   const [videoIds, setVideoIds] = useState([]);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [showVideo, setShowVideo] = useState(false);
   const videoListRef = useRef(null);
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -53,6 +56,7 @@ const CategoriaItem = ({
           .map((video) => ({
             id: extractVideoId(video.url),
             titulo: video.titulo,
+            url: video.id,
           }))
           .filter((video) => video.id);
 
@@ -64,6 +68,44 @@ const CategoriaItem = ({
 
     fetchVideos();
   }, [categoria.id, token]);
+
+  const handlePlayVideo = async (videoId) => {
+    try {
+      const response = await fetch(
+        `https://api-aluraflix-wojl.onrender.com/api/v1/video/${videoId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.error("Erro ao buscar vídeos.");
+        return;
+      }
+
+      const data = await response.json();
+
+      if (!data.url) {
+        console.error("Nenhum vídeo encontrado.");
+        return;
+      }
+
+      console.log(data.url);
+
+      const videoUrl2 = data.url;
+
+      const videoURL = extractVideoId(videoUrl2);
+
+      setVideoUrl(videoURL);
+      setShowVideo(true);
+    } catch (error) {
+      console.error("Erro ao buscar vídeo da categoria", error);
+    }
+  };
 
   const handleMouseMove = (e) => {
     if (containerRef.current && videoListRef.current) {
@@ -110,7 +152,10 @@ const CategoriaItem = ({
           <CategoriaVideoThumbnail
             key={index}
             className={selectedVideo === video.id ? "active" : ""}
-            onClick={() => setSelectedVideo(video.id)}
+            onClick={() => {
+              setSelectedVideo(video.id);
+              handlePlayVideo(video.url);
+            }}
           >
             <img
               src={`https://img.youtube.com/vi/${video.id}/default.jpg`}
@@ -119,6 +164,11 @@ const CategoriaItem = ({
           </CategoriaVideoThumbnail>
         ))}
       </CategoriaVideoList>
+      <VideoMain
+        videoUrl={videoUrl}
+        showVideo={showVideo}
+        setShowVideo={setShowVideo}
+      />
     </CategoriaItemContainer>
   );
 };
