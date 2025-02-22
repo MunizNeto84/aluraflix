@@ -13,7 +13,7 @@ import {
 } from "../../../styles/Button/Button";
 
 const HomeHeader = ({ setVideosBuscados }) => {
-  const { token } = useAuth();
+  const { token, logout } = useAuth();
   const [termo, setTermo] = useState("");
   const [showSearch, setShowSearch] = useState(false);
 
@@ -70,7 +70,7 @@ const HomeHeader = ({ setVideosBuscados }) => {
           ></SearchButton>
         </SearchHomeContainer>
         <ButtonProfile />
-        <ButtonExit src="/exit.svg" alt="Sair" />
+        <ButtonExit src="/exit.svg" alt="Sair" onClick={logout} />
       </Nav>
     </HeaderContainer>
   );
