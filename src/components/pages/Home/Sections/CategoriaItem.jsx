@@ -23,6 +23,13 @@ const CategoriaItem = ({
   const [videoIds, setVideoIds] = useState([]);
   const [videoUrl, setVideoUrl] = useState("");
   const [showVideo, setShowVideo] = useState(false);
+  const [videoData, setVideoData] = useState({
+    id: null,
+    idCategoria: null,
+    idCanal: null,
+    titulo: "",
+    descricao: "",
+  });
   const videoListRef = useRef(null);
   const containerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -87,18 +94,26 @@ const CategoriaItem = ({
         return;
       }
 
-      const data = await response.json();
+      const video = await response.json();
 
-      if (!data.url) {
+      if (!video.url) {
         console.error("Nenhum vídeo encontrado.");
         return;
       }
 
-      console.log(data.url);
-
-      const videoUrl2 = data.url;
+      const videoUrl2 = video.url;
 
       const videoURL = extractVideoId(videoUrl2);
+
+      if (videoURL) {
+        setVideoData({
+          id: video.id,
+          idCategoria: video.categoriaId,
+          idCanal: video.canalId,
+          titulo: video.titulo,
+          descricao: video.descricao,
+        });
+      }
 
       setVideoUrl(videoURL);
       setShowVideo(true);
@@ -168,6 +183,10 @@ const CategoriaItem = ({
         videoUrl={videoUrl}
         showVideo={showVideo}
         setShowVideo={setShowVideo}
+        idCategoria={videoData.idCategoria}
+        idCanal={videoData.idCanal}
+        titulo={videoData.titulo}
+        descricao={videoData.descricao}
       />
     </CategoriaItemContainer>
   );
