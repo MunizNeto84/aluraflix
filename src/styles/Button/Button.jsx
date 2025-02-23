@@ -144,22 +144,21 @@ export const ButtonPlay = styled.button`
 `;
 
 export const CloseButton = styled.button`
-  align-items: center;
-  margin-top: 10px;
-  margin-right: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
   height: 40px;
   top: 10px;
-  right: 10px;
-  curso: poiter;
-  width: 80px;
-  color: white;
+  width: 60px;
   border: none;
   font-weight: 600;
   border-radius: 5px;
-  font-size: 16px;
+
   background-color: var(--primary200);
   transition: 0.3s;
-  position: absolute;
 
   &:hover {
     background-color: var(--primary400);

@@ -11,6 +11,13 @@ const Carrossel = () => {
   const [index, setIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
+  const [videoData, setVideoData] = useState({
+    id: null,
+    idCategoria: null,
+    idCanal: null,
+    titulo: "",
+    descricao: "",
+  });
 
   useEffect(() => {
     const fetchCanal = async () => {
@@ -61,8 +68,10 @@ const Carrossel = () => {
 
   const handlePlayVideo = async () => {
     try {
+      const canal = carrossel[index];
+
       const response = await fetch(
-        `https://api-aluraflix-wojl.onrender.com/api/v1/canal/${carrossel[index]?.id}/video`,
+        `https://api-aluraflix-wojl.onrender.com/api/v1/canal/${canal?.id}/video`,
         {
           method: "GET",
           headers: {
@@ -84,13 +93,19 @@ const Carrossel = () => {
         return;
       }
 
-      const videoUrl = data.conteudo[0].url;
-
-      console.log("URL do vídeo:", videoUrl);
-
+      const video = data.conteudo[0];
+      const videoUrl = video.url;
       const videoId = extractVideoId(videoUrl);
 
       if (videoId) {
+        setVideoData({
+          id: video.id,
+          idCategoria: video.idCategoria,
+          idCanal: canal.id,
+          titulo: video.titulo,
+          descricao: video.descricao,
+        });
+
         setVideoUrl(videoId);
         setShowVideo(true);
       } else {
@@ -115,6 +130,11 @@ const Carrossel = () => {
         videoUrl={videoUrl}
         showVideo={showVideo}
         setShowVideo={setShowVideo}
+        id={videoData.id}
+        idCategoria={videoData.idCategoria}
+        idCanal={videoData.idCanal}
+        titulo={videoData.titulo}
+        descricao={videoData.descricao}
       />
     </CarrosselContainer>
   );

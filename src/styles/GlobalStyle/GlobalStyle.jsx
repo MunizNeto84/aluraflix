@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
     --disabled: #444444;
     --background: #111;
     --text: #e1e1e1;
+    --modal: #181818;
+    --card:#2b2b2b;
   }
 
   * {

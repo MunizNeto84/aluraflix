@@ -232,34 +232,21 @@ export const Wrapper = styled.div`
 `;
 
 export const VideoSection = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  height: 70vh;
-  background: rgba(0, 0, 0, 0.9);
-  display: ${({ show }) => (show ? "flex" : "none")};
-  align-items: center;
-  border-radius: 10px;
-  justify-content: center;
-  z-index: 1000;
-  transform: translate(-50%, -50%);
-
-  @media (min-width: 1024px) {
-    width: 50%;
-  }
-
-  iframe {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    width: 90%;
-    height: 340px;
-    border: 4px solid var(--primary200);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translate(-50%, -50%);
-  }
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(5px);
+z-index: 1000;
+padding: 20px;
+box-sizing: border-box;
+overflow: hidden;
+}
 `;
 
 export const TopTenContainer = styled.div`
@@ -317,7 +304,7 @@ export const VideoGrid = styled.div`
 `;
 
 export const VideoCard = styled.div`
-  background: #1e1e1e;
+  background: var(--card);
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -326,5 +313,113 @@ export const VideoCard = styled.div`
 
   &:hover {
     transform: scale(1.05);
+  }
+`;
+
+export const Modal = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: var(--modal);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 100%;
+  height: 80%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    max-width: 95%;
+    height: auto;
+  }
+`;
+
+export const VideoMainContent = styled.div`
+  padding-right: 20px;
+`;
+
+export const VideoWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 1024px) {
+    padding-top: 56.25%;
+    max-width: 70%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const RelatedContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+`;
+
+export const RelatedVideosContainer = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+
+  @media (min-width: 1024px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+`;
+
+export const RelatedVideoList = styled.div`
+  display: flex;
+`;
+
+export const RelatedVideoCard = styled.div`
+  min-width: 120px;
+  max-width: 180px;
+  background: var(--card);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary200);
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 160px;
+    height: auto;
   }
 `;

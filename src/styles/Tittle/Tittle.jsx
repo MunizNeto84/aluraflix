@@ -69,3 +69,26 @@ export const Numbers = styled.h1`
   font-weight: bold;
   text-shadow: var(--primary200) 5px 5px;
 `;
+
+export const TitleRelated = styled.h2`
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 12px;
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+  }
+`;
+
+export const Description = styled.p`
+  color: #ccc;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 12px;
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+  }
+`;
