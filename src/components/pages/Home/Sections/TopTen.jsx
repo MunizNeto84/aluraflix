@@ -23,6 +23,13 @@ const TopTen = () => {
   const [showVideo, setShowVideo] = useState(false);
   const videoListRef = useRef(null);
   const containerRef = useRef(null);
+  const [videoData, setVideoData] = useState({
+    id: null,
+    idCategoria: null,
+    idCanal: null,
+    titulo: "",
+    descricao: "",
+  });
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollSpeed = 0.1;
 
@@ -52,10 +59,12 @@ const TopTen = () => {
     fetchCanal();
   }, [token]);
 
-  const handlePlayVideo = async (videoId) => {
+  const handlePlayVideo = async (index) => {
     try {
+      const canal = topTenList[index];
+
       const response = await fetch(
-        `https://api-aluraflix-wojl.onrender.com/api/v1/video/${videoId}`,
+        `https://api-aluraflix-wojl.onrender.com/api/v1/canal/${canal?.id}/video`,
         {
           method: "GET",
           headers: {
@@ -72,16 +81,31 @@ const TopTen = () => {
 
       const data = await response.json();
 
-      if (!data.url) {
-        console.error("Nenhum vídeo encontrado.");
+      if (!data.conteudo || data.conteudo.length === 0) {
+        console.error("Nenhum vídeo encontrado para esse canal.");
         return;
       }
 
-      const videoURL = extractVideoId(data.url);
-      setVideoUrl(videoURL);
-      setShowVideo(true);
+      const video = data.conteudo[0];
+      const videoUrl = video.url;
+      const videoId = extractVideoId(videoUrl);
+
+      if (videoId) {
+        setVideoData({
+          id: video.id,
+          idCategoria: video.categoriaId,
+          idCanal: video.canalId,
+          titulo: video.titulo,
+          descricao: video.descricao,
+        });
+
+        setVideoUrl(videoId);
+        setShowVideo(true);
+      } else {
+        console.error("Erro ao extrair ID do vídeo.");
+      }
     } catch (error) {
-      console.error("Erro ao buscar vídeo da categoria", error);
+      console.error("Erro ao buscar vídeos do canal", error);
     }
   };
 
@@ -125,7 +149,7 @@ const TopTen = () => {
           {topTenList.map((item) => (
             <TopTenVideoItem
               key={item.id}
-              onClick={() => handlePlayVideo(item.id)}
+              onClick={() => handlePlayVideo(topTenList.indexOf(item))}
             >
               <Numbers>{item.id}</Numbers>
               <ThumbnailPerfil src={item.urlPerfil} />
@@ -137,6 +161,10 @@ const TopTen = () => {
           videoUrl={videoUrl}
           showVideo={showVideo}
           setShowVideo={setShowVideo}
+          idCategoria={videoData.idCategoria}
+          idCanal={videoData.idCanal}
+          titulo={videoData.titulo}
+          descricao={videoData.descricao}
         />
       </TopTenContainer>
     </div>
