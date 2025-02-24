@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Youtube from "react-youtube";
+import extractVideoId from "../../../utils/extractVideoId";
 import { VideoSection } from "../../../styles/Section/Section";
 import {
   BackgroundDiv,
@@ -18,13 +19,6 @@ const FreeSection = () => {
   const [mainVideo, setMainVideo] = useState(null);
   const [videosPerPage, setVideosPerPage] = useState(3);
   const [currentPage, setCurrentPage] = useState(0);
-
-  const extractVideoId = (url) => {
-    const regex =
-      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-  };
 
   const fetchVideos = async () => {
     try {

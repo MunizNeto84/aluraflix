@@ -1,4 +1,5 @@
 import { useState } from "react";
+import extractVideoId from "../../../../utils/extractVideoId";
 import { Title, Subtitle } from "../../../../styles/Tittle/Tittle";
 import {
   SearchContainer,
@@ -8,13 +9,6 @@ import {
 } from "../../../../styles/Div/Div";
 import { SearchThumbnail } from "../../../../styles/Img/Img";
 import VideoMain from "./VideoMain";
-
-const extractVideoId = (url) => {
-  const regex =
-    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
-};
 
 const Search = ({ videosBuscados }) => {
   const [showVideo, setShowVideo] = useState(false);

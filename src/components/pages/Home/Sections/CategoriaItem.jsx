@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import VideoMain from "./VideoMain";
+import extractVideoId from "../../../../utils/extractVideoId";
 import {
   CategoriaItemContainer,
   CategoriaVideoList,
   CategoriaVideoThumbnail,
   CategoriaTitle,
 } from "../../../../styles/Div/Div";
-
-const extractVideoId = (url) => {
-  const regex =
-    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
-};
 
 const CategoriaItem = ({
   categoria,

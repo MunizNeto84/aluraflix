@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../../service/AuthContext";
+import extractVideoId from "../../../../utils/extractVideoId";
+import VideoMain from "./VideoMain";
 import { CarrosselContainer } from "../../../../styles/Div/Div";
 import { Img, ImgLogo } from "../../../../styles/Img/Img";
 import { ButtonPlay } from "../../../../styles/Button/Button";
-import VideoMain from "./VideoMain";
 
 const Carrossel = () => {
   const { token } = useAuth();
@@ -58,13 +59,6 @@ const Carrossel = () => {
       return () => clearInterval(interval);
     }
   }, [carrossel]);
-
-  const extractVideoId = (url) => {
-    const match = url.match(
-      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-    );
-    return match ? match[1] : null;
-  };
 
   const handlePlayVideo = async () => {
     try {

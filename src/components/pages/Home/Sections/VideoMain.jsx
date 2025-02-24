@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../../../service/AuthContext";
-import styled from "styled-components";
+import extractVideoId from "../../../../utils/extractVideoId";
 import Youtube from "react-youtube";
 import {
   Pagination,
@@ -22,13 +22,6 @@ import {
   Subtitle,
   Description,
 } from "../../../../styles/Tittle/Tittle";
-
-const extractVideoId = (url) => {
-  const match = url.match(
-    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-  );
-  return match ? match[1] : null;
-};
 
 const VideoMain = ({
   videoUrl,

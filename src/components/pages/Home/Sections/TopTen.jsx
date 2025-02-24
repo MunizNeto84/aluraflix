@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../../../service/AuthContext";
+import extractVideoId from "../../../../utils/extractVideoId";
 import VideoMain from "./VideoMain";
 import {
   TopTenContainer,
@@ -8,13 +9,6 @@ import {
 } from "../../../../styles/Div/Div";
 import { Numbers, TopTenTitle } from "../../../../styles/Tittle/Tittle";
 import { ThumbnailPerfil } from "../../../../styles/Img/Img";
-
-const extractVideoId = (url) => {
-  const regex =
-    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
-};
 
 const TopTen = () => {
   const { token } = useAuth();
