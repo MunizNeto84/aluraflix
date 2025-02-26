@@ -19,7 +19,7 @@ export const ButtonPrincipal = styled.button`
     background-color: var(--primary600);
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 490px) {
     height: 2rem;
     width: 4rem;
     font-size: 0.8rem;
@@ -54,6 +54,24 @@ export const ButtonSecondary = styled.button`
 
   &:active {
     background-color: var(--primary600);
+  }
+
+  @media (max-width: 490px) {
+    height: 2.5rem;
+    width: 5.5rem;
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 2.8rem;
+    width: 6.8rem;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 1500px) {
+    height: 3.5rem;
+    width: 8rem;
+    font-size: 1.2rem;
   }
 `;
 

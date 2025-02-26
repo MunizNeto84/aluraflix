@@ -18,6 +18,24 @@ export const InputPrincipal = styled.input`
   &:focus::placeholder {
     color: transparent;
   }
+
+  @media (max-width: 490px) {
+    height: 2.5rem;
+    width: 13rem;
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 2.8rem;
+    width: 14.5rem;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 1500px) {
+    height: 3.5rem;
+    width: 19.5rem;
+    font-size: 1.2rem;
+  }
 `;
 
 export const InputForm = styled.input`

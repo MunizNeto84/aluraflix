@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
 
   @media (min-width: 1500px) {
@@ -9,15 +9,15 @@ export const Title = styled.h1`
   }
 
   @media (max-width: 1024px) {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   @media (max-width: 600px) {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   @media (max-width: 490px) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -26,15 +26,15 @@ export const Subtitle = styled.h2`
   font-weight: 500;
 
   @media (min-width: 1500px) {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   @media (max-width: 1024px) {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
   }
 
   @media (max-width: 600px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 490px) {
