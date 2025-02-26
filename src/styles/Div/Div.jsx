@@ -3,15 +3,21 @@ import styled from "styled-components";
 export const BackgroundDiv = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  overflow: auto;
+  overflow: hidden;
+  padding-bottom: 60px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url("background.jpg") no-repeat center center/cover;
 
+  @media (max-width: 390px) {
+    footer {
+      position: absolute;
+    }
+  }
   &::after {
     content: "";
     position: fixed;
@@ -153,6 +159,7 @@ export const VideoThumbnail = styled.div`
 export const Pagination = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-top: 10px;
   margin-bottom: 15px;

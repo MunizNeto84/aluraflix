@@ -12,10 +12,14 @@ const HeaderContainer = styled.header`
   background: transparent;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 8),
+    rgba(0, 0, 0, 0.8),
     transparent 70%
   );
   z-index: 1000;
+
+  @media (max-width: 390px) {
+    padding: 0.8rem 1rem;
+  }
 `;
 
 export default HeaderContainer;

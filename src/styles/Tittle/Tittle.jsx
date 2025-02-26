@@ -3,20 +3,72 @@ import styled from "styled-components";
 export const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 800;
+
+  @media (min-width: 1500px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 1rem;
-  font-wight: 500;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  @media (min-width: 1500px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Text = styled.p`
-  font-size: 0.7rem;
+  font-size: 1.2rem;
   font-weight: 400;
+
+  @media (min-width: 1500px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 390px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const Label = styled.label`
   font-size: 0.9rem;
+
+  @media (max-width: 390px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Strong = styled.strong`
@@ -30,6 +82,10 @@ export const Strong = styled.strong`
 
   &:active {
     color: var(--primary600);
+  }
+
+  @media (max-width: 390px) {
+    font-size: 0.65rem;
   }
 `;
 

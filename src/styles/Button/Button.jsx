@@ -18,6 +18,24 @@ export const ButtonPrincipal = styled.button`
   &:active {
     background-color: var(--primary600);
   }
+
+  @media (max-width: 390px) {
+    height: 2rem;
+    width: 4rem;
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 1500px) {
+    height: 3.5rem;
+    width: 7rem;
+    font-size: 1.3rem;
+  }
 `;
 
 export const ButtonSecondary = styled.button`
@@ -71,6 +89,9 @@ export const ButtonPagination = styled.button`
   border-radius: 5px;
   cursor: pointer;
   background-color: var(--primary200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: var(--primary400);
@@ -83,6 +104,24 @@ export const ButtonPagination = styled.button`
 
   &:active {
     background-color: var(--primary600);
+  }
+
+  @media (max-width: 390px) {
+    height: 2rem;
+    width: 4rem;
+    font-size: 0.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 3rem;
+    width: 6rem;
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 1500px) {
+    height: 3.5rem;
+    width: 7rem;
+    font-size: 1.3rem;
   }
 `;
 

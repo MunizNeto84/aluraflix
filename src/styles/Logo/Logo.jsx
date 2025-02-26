@@ -9,4 +9,14 @@ export const LogoImg = styled.img`
   width: 7.5rem;
   user-select: none;
   pointer-events: none;
+
+  @media (max-width: 390px) {
+    height: 2.5rem;
+    width: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 4rem;
+    width: 10rem;
+  }
 `;
