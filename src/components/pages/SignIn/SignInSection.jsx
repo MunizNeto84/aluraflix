@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../service/AuthContext"; // ✅ Importação correta
-import Login from "../../../utils/signs";
+import { Login } from "../../../utils/signs";
 import { BackgroundDiv, Container } from "../../../styles/Div/Div";
 import { Title, Text, Strong, Label } from "../../../styles/Tittle/Tittle";
 import Form from "../../../styles/Form/Form";

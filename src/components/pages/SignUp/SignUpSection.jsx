@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Cadastrar } from "../../../utils/signs";
 import { ButtonForm } from "../../../styles/Button/Button";
 import { BackgroundDiv, Container } from "../../../styles/Div/Div";
 import Form from "../../../styles/Form/Form";
@@ -14,30 +15,8 @@ const SignUpSection = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  const cadastrar = async (e) => {
-    e.preventDefault();
-    const userData = { nomeCompleto, email, senha };
-
-    try {
-      const response = await fetch(
-        "https://api-aluraflix-wojl.onrender.com/registro",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(userData),
-        }
-      );
-
-      if (response.ok) {
-        navigate("/login");
-        alert("Cadastro realizado com sucesso.");
-      } else {
-        alert("Erro ao cadastrar. verifique os dados.");
-      }
-    } catch (error) {
-      console.error("Error ao cadastrar: ", error);
-      alert("Erro no servidor. Tente novamente.");
-    }
+  const submit = async (e) => {
+    await Cadastrar(e, nomeCompleto, email, senha, navigate);
   };
 
   useEffect(() => {
@@ -50,7 +29,7 @@ const SignUpSection = () => {
     <BackgroundDiv>
       <Container>
         <Title>Cadastrar</Title>
-        <Form onSubmit={cadastrar}>
+        <Form onSubmit={submit}>
           <Label>Nome Completo</Label>
           <InputForm
             type="text"
