@@ -66,7 +66,7 @@ export const Text = styled.p`
 export const Label = styled.label`
   font-size: 0.9rem;
 
-  @media (max-width: 390px) {
+  @media (max-width: 490px) {
     font-size: 0.8rem;
   }
 `;
@@ -84,8 +84,20 @@ export const Strong = styled.strong`
     color: var(--primary600);
   }
 
+  @media (min-width: 1500px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+
   @media (max-width: 390px) {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 `;
 

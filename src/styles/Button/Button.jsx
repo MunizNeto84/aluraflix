@@ -76,7 +76,7 @@ export const ButtonSecondary = styled.button`
 `;
 
 export const ButtonForm = styled.button`
-  height: 3.1rem;
+  height: 3.5rem;
   width: 25rem;
   font-size: 1rem;
   font-weight: 600;
@@ -93,8 +93,18 @@ export const ButtonForm = styled.button`
     background-color: var(--primary600);
   }
 
+  @media (max-width: 768px) {
+    height: 2.8rem;
+    font-size: 0.95rem;
+    padding: 0.7rem;
+    max-width: 20rem;
+  }
+
   @media (max-width: 480px) {
-    width: 95%;
+    height: 2.6rem;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    max-width: 90%;
   }
 `;
 

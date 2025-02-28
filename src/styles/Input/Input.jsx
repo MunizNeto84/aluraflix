@@ -39,9 +39,10 @@ export const InputPrincipal = styled.input`
 `;
 
 export const InputForm = styled.input`
-  padding: 10px;
-  height: 3.1rem;
-  width: 25rem;
+  padding: 0.8rem;
+  height: 3.5rem;
+  width: 100%;
+  max-width: 28rem;
   font-size: 1rem;
   border: 1px solid var(--primary200);
   border-radius: 5px;
@@ -57,9 +58,18 @@ export const InputForm = styled.input`
     color: transparent;
   }
 
+  @media (max-width: 768px) {
+    height: 3rem;
+    font-size: 0.95rem;
+    padding: 1rem;
+    max-width: 25rem;
+  }
+
   @media (max-width: 480px) {
-    width: 95%;
-    padding: 1.5rem;
+    height: 2.6rem;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    max-width: 90%;
   }
 `;
 

@@ -44,33 +44,47 @@ export const Container = styled.div`
   justify-content: center;
   gap: 0.75rem;
   color: var(--text);
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.625rem;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
 
   form {
-    width: 25rem;
+    width: 100%;
+    max-width: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  h1 {
-    align-self: flex-start;
-    text-align: left;
-    width: 100%;
-  }
-
+  h1,
   p {
-    margin: 10px 5px;
-    align-self: flex-start;
-    text-align: left;
+    text-align: center;
     width: 100%;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 520px) {
+    padding: 0;
+    margin: 0;
+    gap: 0;
     width: 95%;
-    padding: 1.5rem;
+    max-width: 30rem;
+    font-size: 0.875rem;
+
+    h1,
+    p {
+      text-align: center;
+      width: 90%;
+      margin-left: 10px;
+    }
+
+    h1 {
+      margin-top: 15px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
   }
 `;
 
