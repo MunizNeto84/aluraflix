@@ -181,6 +181,7 @@ export const Pagination = styled.div`
 
 export const CarrosselContainer = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 export const CategoriaItemContainer = styled.div`
