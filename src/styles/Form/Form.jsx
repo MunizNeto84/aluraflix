@@ -11,6 +11,14 @@ const Form = styled.form`
   button {
     margin: 15px;
   }
+
+  @media (max-width: 520px) {
+    label {
+      margin: 5px;
+      text-align: left;
+      width: 90%;
+    }
+  }
 `;
 
 export default Form;

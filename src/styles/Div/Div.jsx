@@ -67,14 +67,14 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     gap: 0;
-    width: 90%;
+    width: 95%;
     max-width: 30rem;
     font-size: 0.875rem;
 
     h1,
     p {
       text-align: center;
-      width: 90%;
+      width: 95%;
       margin-left: 10px;
     }
 
@@ -84,12 +84,6 @@ export const Container = styled.div`
 
     p {
       margin-bottom: 15px;
-    }
-
-    label {
-      margin: 5px;
-      text-align: left;
-      width: 90%;
     }
   }
 `;
