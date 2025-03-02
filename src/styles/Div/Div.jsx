@@ -67,7 +67,7 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     gap: 0;
-    width: 95%;
+    width: 90%;
     max-width: 30rem;
     font-size: 0.875rem;
 
@@ -84,6 +84,12 @@ export const Container = styled.div`
 
     p {
       margin-bottom: 15px;
+    }
+
+    label {
+      margin: 5px;
+      text-align: left;
+      width: 90%;
     }
   }
 `;
