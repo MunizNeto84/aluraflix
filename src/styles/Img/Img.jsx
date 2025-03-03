@@ -13,10 +13,13 @@ export const Img = styled.img`
   width: 100%;
   transition: transform 0.2s ease;
   animation: crescer 12s infinite alternate ease-in-out;
+  user-select: none;
+  pointer-events: none;
 
   @media (min-width: 1024px) {
     height: 400px;
     object-fit: cover;
+    object-position: center -160px;
   }
 `;
 
@@ -25,6 +28,11 @@ export const ImgLogo = styled.img`
   bottom: 40px;
   left: 18px;
   width: 280px;
+  user-select: none;
+  pointer-events: none;
+  @media (max-width: 490px) {
+    width: 180px;
+  }
 `;
 
 export const ThumbnailPerfil = styled.img`
@@ -34,6 +42,7 @@ export const ThumbnailPerfil = styled.img`
   cursor: pointer;
   height: 140px;
   transition: transform 0.3s ease;
+  user-select: none;
 
   &:hover {
     transform: scale(1.1);
@@ -54,4 +63,5 @@ export const ThumbnailPerfil = styled.img`
 export const SearchThumbnail = styled.img`
   width: 100%;
   border-radius: 5px;
+  user-select: none;
 `;

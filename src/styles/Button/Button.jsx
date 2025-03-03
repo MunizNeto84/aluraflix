@@ -160,6 +160,7 @@ export const ButtonProfile = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  user-select: none;
   background: url("https://loodibee.com/wp-content/uploads/Netflix-avatar-1.png")
     no-repeat center center/cover;
 
@@ -178,6 +179,7 @@ export const ButtonExit = styled.img`
   cursor: pointer;
   transition: 0.3s;
   position: relative;
+  user-select: none;
 
   &:hover {
     transform: scale(1.1);
@@ -207,6 +209,10 @@ export const ButtonPlay = styled.button`
 
   &:active {
     background-color: var(--primary600);
+  }
+
+  @media (max-width: 490px) {
+    width: 100px;
   }
 `;
 
