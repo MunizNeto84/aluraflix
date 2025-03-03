@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../service/AuthContext";
+import styled from "styled-components";
 
 import HeaderContainer from "../../../styles/Header/Header";
 import Logo from "../Logo/Logo";
@@ -16,6 +17,7 @@ const HomeHeader = ({ setVideosBuscados }) => {
   const { token, logout } = useAuth();
   const [termo, setTermo] = useState("");
   const [showSearch, setShowSearch] = useState(false);
+  const [showItem, setShowItem] = useState(true);
 
   const handleSearch = async (searchTerm) => {
     if (!searchTerm.trim()) {
@@ -49,7 +51,8 @@ const HomeHeader = ({ setVideosBuscados }) => {
 
   return (
     <HeaderContainer>
-      <Logo />
+      <Logo visible={showItem} />
+      <div></div>
 
       <Nav>
         <SearchHomeContainer>
@@ -66,7 +69,10 @@ const HomeHeader = ({ setVideosBuscados }) => {
           />
           <SearchButton
             src="/search.svg"
-            onClick={() => setShowSearch(!showSearch)}
+            onClick={() => {
+              setShowSearch(!showSearch);
+              setShowItem(!showItem);
+            }}
           ></SearchButton>
         </SearchHomeContainer>
         <ButtonProfile />

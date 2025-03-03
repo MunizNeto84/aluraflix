@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const LogoContainer = styled.div`
   display: flex;
+
+  @media (max-width: 490px) {
+    display: ${(props) => (props.visible ? "flex" : "none")};
+  }
 `;
 
 export const LogoImg = styled.img`
@@ -10,7 +14,7 @@ export const LogoImg = styled.img`
   user-select: none;
   pointer-events: none;
 
-  @media (max-width: 390px) {
+  @media (max-width: 490px) {
     height: 2.5rem;
     width: 6rem;
   }

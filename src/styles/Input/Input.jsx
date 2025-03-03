@@ -81,4 +81,9 @@ export const SearchInput = styled.input`
   outline: none;
   width: 250px;
   display: ${(props) => (props.visible ? "block" : "none")};
+
+  @media (max-width: 490px) {
+    margin-top: 2px;
+    width: 215px;
+  }
 `;
