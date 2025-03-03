@@ -202,6 +202,11 @@ export const CategoriaItemContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 490px) {
+    width: 100%;
+    padding: 35px 10px 10px;
+  }
 `;
 
 export const CategoriaVideoList = styled.div`
@@ -227,7 +232,12 @@ export const CategoriaVideoThumbnail = styled.div`
     border-radius: 5px;
     border: 5px solid transparent;
   }
-
+  @media (max-width: 490px) {
+    img {
+      width: 120px;
+      height: 90px;
+    }
+  }
   &.active img {
     border-color: var(--primary200);
   }
@@ -243,6 +253,9 @@ export const CategoriaTitle = styled.div`
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   z-index: 10;
+  @media (max-width: 490px) {
+    font-size: 16px;
+  }
 `;
 
 export const Wrapper = styled.div`
