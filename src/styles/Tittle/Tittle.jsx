@@ -128,6 +128,9 @@ export const TopTenTitle = styled.h1`
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   z-index: 10;
+  @media (max-width: 490px) {
+    font-size: 16px;
+  }
 `;
 
 export const Numbers = styled.h1`
@@ -136,6 +139,9 @@ export const Numbers = styled.h1`
   font-size: 140px;
   font-weight: bold;
   text-shadow: var(--primary200) 5px 5px;
+  @media (max-width: 490px) {
+    font-size: 100px;
+  }
 `;
 
 export const TitleRelated = styled.h2`

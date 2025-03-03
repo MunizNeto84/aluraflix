@@ -290,6 +290,10 @@ export const TopTenContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 490px) {
+    padding: 30px 10px 10px;
+  }
 `;
 
 export const TopTenVideoList = styled.div`

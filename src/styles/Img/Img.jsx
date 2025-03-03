@@ -58,6 +58,9 @@ export const ThumbnailPerfil = styled.img`
   &.active img {
     border-color: var(--primary200);
   }
+  @media (max-width: 490px) {
+    height: 90px;
+  }
 `;
 
 export const SearchThumbnail = styled.img`
