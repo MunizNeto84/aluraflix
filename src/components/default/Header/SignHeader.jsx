@@ -6,7 +6,7 @@ const SignHeader = () => {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <Logo onClick={() => navigate("/")} />
+      <Logo onClick={() => navigate("/")} visible={true} />
     </HeaderContainer>
   );
 };

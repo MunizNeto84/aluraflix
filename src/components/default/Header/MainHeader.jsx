@@ -7,7 +7,7 @@ const MainHeader = () => {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <Logo onClick={() => navigate("/")} />
+      <Logo onClick={() => navigate("/")} visible={true} />
       <ButtonPrincipal onClick={() => navigate("/login")}>
         Entrar
       </ButtonPrincipal>
