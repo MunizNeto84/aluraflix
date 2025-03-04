@@ -358,25 +358,47 @@ export const VideoCard = styled.div`
 export const Modal = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  background: var(--modal);
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   border-radius: 10px;
+  color: var(--text);
   max-width: 90%;
   width: 100%;
-  height: 80%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  min-height: 80vh;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  background: var(--modal);
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1500px) {
     flex-direction: column;
+    align-items: center;
     max-width: 95%;
     height: auto;
+  }
+
+  @media (max-width: 490px) {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
   }
 `;
 
 export const VideoMainContent = styled.div`
-  padding-right: 20px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 900px) {
+    padding-right: 60px;
+    flex-wrap: wrap;
+    min-width: 550px;
+  }
 `;
 
 export const VideoWrapper = styled.div`
@@ -386,11 +408,6 @@ export const VideoWrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
-  @media (min-width: 1024px) {
-    padding-top: 56.25%;
-    max-width: 70%;
-  }
 
   iframe {
     position: absolute;
@@ -407,27 +424,47 @@ export const RelatedContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 16px;
+  h2 {
+    margin-top: 1rem;
+  }
 `;
 
 export const RelatedVideosContainer = styled.div`
-  margin-top: 20px;
   width: 100%;
-  overflow-x: auto;
+  max-width: 900px;
   display: flex;
-  gap: 15px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  margin-right: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 900px) {
+    padding-right: 60px;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20px;
+    min-width: 550px;
   }
 `;
 
 export const RelatedVideoList = styled.div`
-  display: flex;
+  display: grid;
+  width: 100%;
+  gap: 15px;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5rem;
+  }
 `;
 
 export const RelatedVideoCard = styled.div`
@@ -457,8 +494,14 @@ export const RelatedVideoCard = styled.div`
     padding: 8px;
   }
 
-  @media (min-width: 1024px) {
-    width: 160px;
-    height: auto;
+  @media (max-width: 490px) {
+    img {
+      width: 100%;
+      height: 80px;
+    }
+    p {
+      font-size: 0.7rem;
+      padding: 6px;
+    }
   }
 `;

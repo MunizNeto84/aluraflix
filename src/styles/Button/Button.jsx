@@ -224,7 +224,6 @@ export const CloseButton = styled.button`
   color: white;
   cursor: pointer;
   height: 40px;
-  top: 10px;
   width: 60px;
   border: none;
   font-weight: 600;
@@ -239,6 +238,16 @@ export const CloseButton = styled.button`
 
   &:active {
     background-color: var(--primary600);
+  }
+
+  @media (max-width: 490px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    right: 0px;
+    height: 25px;
+    width: 40px;
   }
 `;
 

@@ -1,27 +1,33 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../../../../service/AuthContext";
 import extractVideoId from "../../../../utils/extractVideoId";
 import Youtube from "react-youtube";
-import {
-  Pagination,
-  VideoSection,
-  Modal,
-  VideoMainContent,
-  RelatedVideoCard,
-  VideoWrapper,
-  RelatedVideoList,
-  RelatedContent,
-  RelatedVideosContainer,
-} from "../../../../styles/Div/Div";
+
+import { Pagination, RelatedVideoCard } from "../../../../styles/Div/Div";
 import {
   CloseButton,
   ButtonPagination,
 } from "../../../../styles/Button/Button";
+import { Subtitle, Title, Text } from "../../../../styles/Tittle/Tittle";
 import {
-  TitleRelated,
-  Subtitle,
-  Description,
-} from "../../../../styles/Tittle/Tittle";
+  VideoSectionModal,
+  Modal,
+  VideoMainSection,
+  Video,
+  VideoWrapper,
+  VideoListSectionModal,
+  VideoListModal,
+} from "../../../../styles/Video/Video";
+
+const customUpdatePagination = (setVideosPerPage) => {
+  if (window.innerWidth > 1500) {
+    setVideosPerPage(9);
+  } else if (window.innerWidth > 600) {
+    setVideosPerPage(3);
+  } else {
+    setVideosPerPage(2);
+  }
+};
 
 const VideoMain = ({
   videoUrl,
@@ -35,17 +41,29 @@ const VideoMain = ({
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [canalImagem, setCanalImagem] = useState("");
   const [currentVideoUrl, setCurrentVideoUrl] = useState(videoUrl);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [tituloAtual, setTituloAtual] = useState(titulo);
+  const [descricaoAtual, setDescricaoAtual] = useState(descricao);
+
   const [videosPerPage, setVideosPerPage] = useState(3);
-  const containerRef = useRef(null);
-  const videoListRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    const updatePagination = () => {
+      customUpdatePagination(setVideosPerPage);
+    };
+
+    updatePagination();
+    window.addEventListener("resize", updatePagination);
+
+    return () => window.removeEventListener("resize", updatePagination);
+  }, []);
 
   useEffect(() => {
     const fetchVideos = async () => {
       if (!idCanal) return;
 
       try {
-        const response = await fetch(
+        const videosCanal = await fetch(
           `https://api-aluraflix-wojl.onrender.com/api/v1/canal/${idCanal}/video`,
           {
             method: "GET",
@@ -56,12 +74,33 @@ const VideoMain = ({
           }
         );
 
-        if (!response.ok) {
+        if (!videosCanal.ok) {
           console.error("Erro ao buscar vídeos.");
           return;
         }
 
-        const data = await response.json();
+        const response = await videosCanal.json();
+
+        if (!response?.totalRegistros) {
+          throw new Error("Dados inválidos recebidos.");
+        }
+
+        const videosTotal = await fetch(
+          `https://api-aluraflix-wojl.onrender.com/api/v1/canal/${idCanal}/video?page=1&limit=${response.totalRegistros}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!videosTotal.ok) {
+          throw new Error(`Erro na requisição: ${videosTotal.status}`);
+        }
+
+        const data = await videosTotal.json();
         if (
           !data.conteudo ||
           !Array.isArray(data.conteudo) ||
@@ -89,7 +128,6 @@ const VideoMain = ({
 
         const canalData = await canalResponse.json();
         setCanalImagem(canalData.urlCapa);
-
         setRelatedVideos(data.conteudo);
       } catch (error) {
         console.error("Erro ao buscar vídeos do canal", error);
@@ -105,7 +143,9 @@ const VideoMain = ({
     }
 
     setCurrentVideoUrl(videoUrl);
-  }, [videoUrl, showVideo]);
+    setTituloAtual(titulo);
+    setDescricaoAtual(descricao);
+  }, [videoUrl, showVideo, titulo, descricao]);
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1);
@@ -115,73 +155,54 @@ const VideoMain = ({
     setCurrentPage((prev) => Math.max(prev - 1, 1));
   };
 
-  useEffect(() => {
-    const updateVideosPerPage = () => {
-      if (window.innerWidth < 768) {
-        setVideosPerPage(4);
-      } else {
-        setVideosPerPage(Math.floor(window.innerWidth / 220));
-      }
-    };
-
-    updateVideosPerPage();
-    window.addEventListener("resize", updateVideosPerPage);
-
-    return () => {
-      window.removeEventListener("resize", updateVideosPerPage);
-    };
-  }, []);
-
   const startIndex = (currentPage - 1) * videosPerPage;
   const endIndex = startIndex + videosPerPage;
   const currentVideos = relatedVideos.slice(startIndex, endIndex);
 
   return showVideo ? (
-    <VideoSection>
+    <VideoSectionModal>
       <Modal>
-        <VideoMainContent>
-          <TitleRelated>{titulo}</TitleRelated>
-          <VideoWrapper>
-            <Youtube
-              videoId={currentVideoUrl}
-              opts={{
-                playerVars: {
-                  autoplay: 1,
-                  mute: 0,
-                  controls: 1,
-                  rel: 0,
-                  fs: 1,
-                },
-              }}
-            />
-          </VideoWrapper>
-          <Description>{descricao}</Description>
-        </VideoMainContent>
-
-        <RelatedContent>
-          <Subtitle style={{ color: "#fff", marginBottom: "10px" }}>
-            Vídeos Relacionados
-          </Subtitle>
-          <RelatedVideosContainer ref={containerRef}>
-            <RelatedVideoList ref={videoListRef}>
-              {currentVideos.map((video) => {
-                const videoId = extractVideoId(video.url);
-                return (
-                  <RelatedVideoCard
-                    key={video.id}
-                    onClick={() => {
-                      setShowVideo(true);
-                      setCurrentVideoUrl(videoId);
-                    }}
-                  >
-                    <img src={canalImagem} alt={video.titulo} />
-                    <p>{video.titulo}</p>
-                  </RelatedVideoCard>
-                );
-              })}
-            </RelatedVideoList>
-          </RelatedVideosContainer>
-
+        <VideoMainSection>
+          <Video>
+            <VideoWrapper>
+              <Youtube
+                videoId={currentVideoUrl}
+                opts={{
+                  playerVars: {
+                    autoplay: 1,
+                    mute: 0,
+                    controls: 1,
+                    rel: 0,
+                    fs: 1,
+                  },
+                }}
+              />
+            </VideoWrapper>
+            <Title>{tituloAtual}</Title>
+            <Text>{descricaoAtual}</Text>
+          </Video>
+        </VideoMainSection>
+        <VideoListSectionModal>
+          <Subtitle>Vídeos Relacionados</Subtitle>
+          <VideoListModal>
+            {currentVideos.map((video) => {
+              const videoId = extractVideoId(video.url);
+              return (
+                <RelatedVideoCard
+                  key={video.id}
+                  onClick={() => {
+                    setShowVideo(true);
+                    setCurrentVideoUrl(videoId);
+                    setTituloAtual(video.titulo);
+                    setDescricaoAtual(video.descricao);
+                  }}
+                >
+                  <img src={canalImagem} alt={video.titulo} />
+                  <p>{video.titulo}</p>
+                </RelatedVideoCard>
+              );
+            })}
+          </VideoListModal>
           <Pagination>
             <ButtonPagination
               onClick={handlePrevPage}
@@ -196,10 +217,10 @@ const VideoMain = ({
               Próximo
             </ButtonPagination>
           </Pagination>
-        </RelatedContent>
+        </VideoListSectionModal>
         <CloseButton onClick={() => setShowVideo(false)}>X</CloseButton>
       </Modal>
-    </VideoSection>
+    </VideoSectionModal>
   ) : null;
 };
 

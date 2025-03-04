@@ -38,7 +38,7 @@ export const Subtitle = styled.h2`
   }
 
   @media (max-width: 490px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 `;
 
@@ -151,8 +151,8 @@ export const TitleRelated = styled.h2`
   text-align: center;
   margin-bottom: 12px;
 
-  @media (min-width: 1024px) {
-    font-size: 2rem;
+  @media (max-width: 490px) {
+    font-size: 1rem;
   }
 `;
 
@@ -162,7 +162,7 @@ export const Description = styled.p`
   text-align: center;
   margin-top: 12px;
 
-  @media (min-width: 1024px) {
-    font-size: 1.2rem;
+  @media (max-width: 490px) {
+    font-size: 0.7rem;
   }
 `;
