@@ -25,7 +25,6 @@ const TopTen = () => {
     descricao: "",
   });
   const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollSpeed = 0.1;
 
   useEffect(() => {
     const fetchCanal = async () => {
@@ -81,8 +80,7 @@ const TopTen = () => {
       }
 
       const video = data.conteudo[0];
-      const videoUrl = video.url;
-      const videoId = extractVideoId(videoUrl);
+      const videoId = extractVideoId(video.url);
 
       if (videoId) {
         setVideoData({
@@ -108,7 +106,6 @@ const TopTen = () => {
       const containerWidth = containerRef.current.offsetWidth;
       const mouseX = e.clientX - containerRef.current.offsetLeft;
       const scrollPercent = mouseX / containerWidth;
-
       const maxScroll = videoListRef.current.scrollWidth - containerWidth;
       const newScrollPosition = Math.min(
         Math.max(0, maxScroll * scrollPercent),
@@ -139,7 +136,13 @@ const TopTen = () => {
     <div>
       <TopTenContainer ref={containerRef} onMouseMove={handleMouseMove}>
         <TopTenTitle>🔟 - TOP 10</TopTenTitle>
-        <TopTenVideoList ref={videoListRef}>
+        <TopTenVideoList
+          ref={videoListRef}
+          style={{
+            transform: `translateX(-${scrollPosition}px)`,
+            transition: "transform 0.2s ease-out",
+          }}
+        >
           {topTenList.map((item) => (
             <TopTenVideoItem
               key={item.id}
