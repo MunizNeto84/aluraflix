@@ -25,7 +25,6 @@ const Search = ({ videosBuscados }) => {
 
           return (
             <VideoCard key={video.id}>
-              <Subtitle>{video.titulo}</Subtitle>
               <CategoriaVideoThumbnail>
                 <SearchThumbnail
                   src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
@@ -36,6 +35,7 @@ const Search = ({ videosBuscados }) => {
                   }}
                 />
               </CategoriaVideoThumbnail>
+              <Subtitle>{video.titulo}</Subtitle>
             </VideoCard>
           );
         })}

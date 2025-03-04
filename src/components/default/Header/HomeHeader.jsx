@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../../service/AuthContext";
-import styled from "styled-components";
 
 import HeaderContainer from "../../../styles/Header/Header";
 import Logo from "../Logo/Logo";
@@ -37,10 +36,33 @@ const HomeHeader = ({ setVideosBuscados }) => {
         }
       );
 
-      if (response.ok) {
-        const data = await response.json();
-        setVideosBuscados(data.videos.conteudo);
+      if (!response.ok) {
+        console.error("Erro na primeira requisição:", response.status);
+        setVideosBuscados([]);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("Dados recebidos:", data);
+
+      const totalRegistros = data.videos.totalRegistros || 7;
+
+      const searchResponse = await fetch(
+        `https://api-aluraflix-wojl.onrender.com/api/v1/video?search=${searchTerm}&page=1&limit=${totalRegistros}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (searchResponse.ok) {
+        const searchData = await searchResponse.json();
+        setVideosBuscados(searchData.videos.conteudo);
       } else {
+        console.error("Erro na segunda requisição:", searchResponse.status);
         setVideosBuscados([]);
       }
     } catch (error) {

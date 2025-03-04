@@ -353,6 +353,28 @@ export const VideoCard = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+
+  img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary200);
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  @media (max-width: 490px) {
+    img {
+      height: 80px;
+    }
+    p {
+      font-size: 0.7rem;
+      padding: 6px;
+    }
+  }
 `;
 
 export const Modal = styled.div`
