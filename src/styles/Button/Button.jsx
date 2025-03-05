@@ -94,10 +94,10 @@ export const ButtonForm = styled.button`
   }
 
   @media (max-width: 768px) {
-    height: 2.8rem;
+    height: 3rem;
     font-size: 0.95rem;
-    padding: 0.7rem;
-    max-width: 20rem;
+    padding: 1rem;
+    max-width: 25rem;
   }
 
   @media (max-width: 480px) {
